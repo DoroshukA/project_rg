@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CheckFormService } from '../check-form.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-reg',
@@ -7,9 +9,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegComponent implements OnInit {
 
-  constructor() { }
+  name: String;
+  login: String;
+  email: String;
+  password: String;
+
+  constructor(
+    private checkForm: CheckFormService, 
+    private flashMessages: FlashMessagesService
+    ) { }
 
   ngOnInit(): void {
+  }
+
+  userRegisterClick() {
+    const user = {
+      name: this.name,
+      login: this.login,
+      email: this.email,
+      password: this.password,
+    };
+
+    if(!this.checkForm.checkName(user.name)) {
+      this.flashMessages.show("Ім'я користувача відсутнє", {
+        cssClass: 'alert-danger',
+        timeout: 4000
+      });
+      return false;
+    } else if(!this.checkForm.checkLogin(user.login)) {
+      this.flashMessages.show("Введіть логін користувача", {
+        cssClass: 'alert-danger',
+        timeout: 4000
+      });
+      return false;
+    } else if(!this.checkForm.checkEmail(user.email)) {
+      this.flashMessages.show("Почта користувача відсутня", {
+        cssClass: 'alert-danger',
+        timeout: 4000
+      });
+      return false;
+    } else if(!this.checkForm.checkPssword(user.password)) {
+      this.flashMessages.show("Введіть пароль!", {
+        cssClass: 'alert-danger',
+        timeout: 4000
+      });
+      return false;
+    }
   }
 
 }

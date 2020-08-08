@@ -12,14 +12,14 @@
     "url": "git+https://github.com/DoroshukA/project_rg.git"
   },
   "dependencies": {
-    "express": "*",
-    "mongoose": "*",
     "bcryptjs": "*",
-    "passport": "*",
-    "passport-jwt": "*",
     "body-parser": "*",
     "cors": "*",
-    "jsonwebtoken": "*"
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "passport": "^0.4.1",
+    "passport-jwt": "*"
   },
   "author": "",
   "license": "ISC",

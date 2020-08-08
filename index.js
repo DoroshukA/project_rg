@@ -2,14 +2,19 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const passsport = require('passport');
+const passport = require('passport');
 const path = require('path');
 const config = require('./config/db');
-const account = require('./routes/account'); 
+const account = require('./routes/account');
 
 const app = express();
 
 const port = 3000;
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport); 
 
 app.use(cors());
 
@@ -34,5 +39,5 @@ app.get('/', (req, res)=>{
 app.use('/account/', account);
 
 app.listen(port, ()=> {
-    console.log(`Сервер был запущен по порту: ${port}`);
+    console.log(`Сервер був запущений по порту: ${port}`);
 });

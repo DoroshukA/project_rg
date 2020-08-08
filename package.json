@@ -1,0 +1,29 @@
+{
+  "name": "project_rg",
+  "version": "1.0.0",
+  "description": "This is app for radioguide rent",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoroshukA/project_rg.git"
+  },
+  "dependencies": {
+    "express": "*",
+    "mogoose": "*",
+    "bcryptjs": "*",
+    "passport": "*",
+    "passport-jwt": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "jsonwebtoken": "*"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DoroshukA/project_rg/issues"
+  },
+  "homepage": "https://github.com/DoroshukA/project_rg#readme"
+}

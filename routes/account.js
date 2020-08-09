@@ -19,9 +19,9 @@ router.post('/reg', (req, res)=>{
 
     User.addUser(newUser, (err, user) => {
         if(err)
-         res.json({success: false, msg: "Користувач не доданий"});
+        res.json({success: false, msg: "Користувач не доданий"});
         else
-         res.json({success: true, msg: "Користувач доданий"});
+        res.json({success: true, msg: "Користувач доданий"});
     });
 });
 
@@ -30,14 +30,16 @@ router.post('/auth', (req, res)=>{
     const password = req.body.password;
 
     User.getUserByLogin(login, (err, user) => {
-        if(err) throw err;
+        if(err) 
+        throw err;
         if(!user)
         return res.json({success: false, msg: "Такий користувач не був знайдений"});
 
         User.comparePass(password, user.password, (err, isMatch) => {
-            if(err) throw err;
+            if(err) 
+            throw err;
             if(isMatch) {
-                const token = jwt.sign(user, config.secret, {
+                const token = jwt.sign(user.toJSON(), config.secret, {
                     expiresIn: 3600 * 24
                 });
 
@@ -52,7 +54,7 @@ router.post('/auth', (req, res)=>{
                     }
                 });
             } else
-            return res.json({success: false, msg: "Паролі не мспівпадають"});
+            return res.json({success: false, msg: "Паролі не співпадають"});
         });
     });
 });

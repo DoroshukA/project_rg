@@ -1,1 +1,6 @@
-<p>auth works!</p>
+<h1>Форма авторизації</h1>
+<form (submit)="userLoginClick()">
+    <input type="text" [(ngModel)]="login" name="login" placeholder="Введіть логін" class="form-control"><br>
+    <input type="text" [(ngModel)]="password" name="password" placeholder="Введіть пароль" class="form-control"><br>
+    <button class="btn btn-success" type="submit">Увійти в кабінет</button>
+</form>

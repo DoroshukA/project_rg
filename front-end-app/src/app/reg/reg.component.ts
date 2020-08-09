@@ -3,7 +3,6 @@ import { CheckFormService } from '../check-form.service';
 import { AuthService } from '../auth.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
-import { from } from 'rxjs';
 
 @Component({
   selector: 'app-reg',
